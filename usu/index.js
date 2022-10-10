@@ -1,11 +1,11 @@
-//USUARIOS: http://localhost:2000/usu
-const express = require("express")
-const axios = require("axios")
+//USUARIOS: http://192.168.0.26:1000/usu
+const express = require("express");
+const axios = require("axios");
 
-const { v4: uuidv4  } = require("uuid")
+const { v4: uuidv4  } = require("uuid");
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
 //----------------------------------------------------
 //BASE
@@ -56,8 +56,8 @@ app.delete("/usuario/:id",(req,res)=>{
     
 })
 
-app.listen(2000,() => {
-    console.log('PORTA 2000')
+app.listen(1000,() => {
+    console.log('PORTA 1000')
 })
 
 

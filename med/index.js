@@ -1,4 +1,4 @@
-//MEDICAMENTOS/PRODUTOS: http://localhost:4000/med
+//MEDICAMENTOS/PRODUTOS: http://192.168.0.26:2000/med
 const express = require("express")
 const axios = require("axios")
 
@@ -21,15 +21,28 @@ app.get('/medicamento', (req,res)=>{
 app.post('/medicamento', (req,res)=>{
     try{
         medprod.push({
-            nome: req.body.nome,
-            nivel: req.body.nivel,
+            id:      req.body.id ,
+            nome:    req.body.nome,
+            nivel:   req.body.nivel, //se o produto requer prescrição ou não
             empresa: req.body.empresa,
             estoque: req.body.estoque
         })
-    }catch(err){console.log(err)}
-   
+
+        res.send(201)
+    }catch(err){console.log(err)}   
+
+    res.end()
+    
 })
 
-app.listen(4000,() => {
-    console.log('PORTA 4000')
+app.put('/medicamento',(req,res)=>{
+
+})
+
+app.delete('/medicamento',(req,res)=>{
+
+})
+
+app.listen(2000,() => {
+    console.log('PORTA 2000')
 })
