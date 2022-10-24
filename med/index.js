@@ -1,4 +1,4 @@
-//MEDICAMENTOS/PRODUTOS: http://192.168.0.26:2000/med
+//MEDICAMENTOS/PRODUTOS: http://192.168.0.20:2000/med
 const express = require("express")
 const axios = require("axios")
 
@@ -14,6 +14,10 @@ medprod = []
  
 //----------------------------------------------------
 
+const funcoes = {
+    
+}
+
 app.get('/medicamento', (req,res)=>{
     res.send(medprod)
 })
@@ -21,11 +25,11 @@ app.get('/medicamento', (req,res)=>{
 app.post('/medicamento', (req,res)=>{
     try{
         medprod.push({
-            id:      req.body.id ,
-            nome:    req.body.nome,
-            nivel:   req.body.nivel, //se o produto requer prescrição ou não
-            empresa: req.body.empresa,
-            estoque: req.body.estoque
+            id:      req.body.id      || "ND",
+            nome:    req.body.nome    || "ND",
+            nivel:   req.body.nivel   || "ND", //se o produto requer prescrição ou não
+            empresa: req.body.empresa || "ND",
+            estoque: req.body.estoque || "ND"
         })
 
         res.send(201)
@@ -35,14 +39,14 @@ app.post('/medicamento', (req,res)=>{
     
 })
 
-app.put('/medicamento',(req,res)=>{
-
+app.post('/eventos',(req,res)=>{
+    console.log(req.body);
+    res.status(200).send({msg: 'WORKING'});
 })
 
-app.delete('/medicamento',(req,res)=>{
 
-})
+app.put('/medicamento',(req,res)=>{})
+app.delete('/medicamento',(req,res)=>{})
 
-app.listen(2000,() => {
-    console.log('PORTA 2000')
-})
+
+app.listen(2000,() => {    console.log('PORTA 2000')    })

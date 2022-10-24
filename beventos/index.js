@@ -22,10 +22,10 @@ app.post('/eventos', (req, res) => {
     const evento = req.body;
     eventos.push(evento);
 
-    axios.post('http://192.168.0.26:1000/eventos', evento)
+    axios.post('http://192.168.0.20:1000/eventos', evento)
     .catch((err) => {console.log("Microsserviço de Usuarios fora do ar.")});
 
-    axios.post('http://192.168.0.26:2000/eventos', evento)
+    axios.post('http://192.168.0.20:2000/eventos', evento)
     .catch((err) => {console.log("Microsserviço de Produtos fora do ar.")});
 
 
