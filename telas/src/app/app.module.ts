@@ -1,42 +1,29 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './paginas/login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-
-import {MatButtonModule} from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-
-
+import { LoginComponent } from './componets/login/login.component';
+import { SignupComponent } from './componets/signup/signup.component';
+import { CabecalhoComponent } from './componets/cabecalho/cabecalho.component';
+import { CatalogoComponent } from './componets/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    
+    SignupComponent,
+    CabecalhoComponent,
+    CatalogoComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatIconModule,
-
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
-  
 })
 export class AppModule { }

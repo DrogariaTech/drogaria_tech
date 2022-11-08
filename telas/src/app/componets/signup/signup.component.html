@@ -1,0 +1,159 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-3 col-lg-4 col-md-4 offset-lg-1 offset-md-3">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h2 class="pt-5 font-weight-bold">Crie sua conta</h2>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="signUpForm">
+              <div class="form-group pt-3">
+                <small
+                  *ngIf="
+                    signUpForm.controls['primeiroNome'].dirty &&
+                    signUpForm.hasError('required', 'primeiroNome')
+                  "
+                  class="text-danger"
+                  >Campo Obrigatorio</small
+                >
+                <div class="form-group pt-3">
+                  <div
+                    class="input-field"
+                    [class.error]="
+                      signUpForm.controls['primeiroNome'].dirty &&
+                      signUpForm.hasError('required', 'primeiroNome')
+                    "
+                  >
+                    <span class="fa fa-user p2"></span>
+                    <input
+                      formControlName="primeiroNome"
+                      type="text"
+                      placeholder="Primeiro nome"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <small
+                *ngIf="
+                  signUpForm.controls['sobrenome'].dirty &&
+                  signUpForm.hasError('required', 'sobrenome')
+                "
+                class="text-danger"
+                >Campo Obrigatorio</small
+              >
+              <div class="form-group pt-3">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    signUpForm.controls['sobrenome'].dirty &&
+                    signUpForm.hasError('required', 'sobrenome')
+                  "
+                >
+                  <span class="fa fa-user p2"></span>
+                  <input
+                    formControlName="sobrenome"
+                    type="text"
+                    placeholder="Sobrenome"
+                  />
+                </div>
+              </div>
+
+              <small
+                *ngIf="
+                  signUpForm.controls['email'].dirty &&
+                  signUpForm.hasError('required', 'email')
+                "
+                class="text-danger"
+                >Campo Obrigatorio</small
+              >
+              <div class="form-group pt-3">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    signUpForm.controls['email'].dirty &&
+                    signUpForm.hasError('required', 'email')
+                  "
+                >
+                  <span class="fa fa-user p2"></span>
+                  <input
+                    formControlName="email"
+                    type="text"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+
+              <small
+                *ngIf="
+                  signUpForm.controls['usuario'].dirty &&
+                  signUpForm.hasError('required', 'usuario')
+                "
+                class="text-danger"
+                >Campo Obrigatorio</small
+              >
+              <div class="form-group pt-3">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    signUpForm.controls['usuario'].dirty &&
+                    signUpForm.hasError('required', 'usuario')
+                  "
+                >
+                  <span class="fa fa-user p2"></span>
+                  <input
+                    formControlName="usuario"
+                    type="text"
+                    placeholder="Usuario"
+                  />
+                </div>
+              </div>
+              <small
+                *ngIf="
+                  signUpForm.controls['senha'].dirty &&
+                  signUpForm.hasError('required', 'senha')
+                "
+                class="text-danger"
+                >Campo Obrigatorio</small
+              >
+              <div class="form-group pt-3">
+                <div
+                  class="input-field"
+                  class="input-field"
+                  [class.error]="
+                    signUpForm.controls['senha'].dirty &&
+                    signUpForm.hasError('required', 'senha')
+                  "
+                >
+                  <span class="fa fa-lock p2"></span>
+                  <input
+                    formControlName="senha"
+                    [type]="type"
+                    placeholder="Senha"
+                  />
+                  <span
+                    (click)="hideShowPass()"
+                    class="fa {{ eyeIcon }}"
+                  ></span>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-block mt-3 w-100"
+                (click)="onSingup()"
+              >
+                Inscrever-se
+              </button>
+              <div class="text-center pt-4 text-muted">
+                Já possui uma conta?
+                <a id="forget" routerLink="/login">Faça login</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
